@@ -20,24 +20,26 @@ Abra http://127.0.0.1:3010 e http://127.0.0.1:3010/admin. Use **admin** e a senh
 - Vitrine responsiva, seis categorias iniciais, busca, ordenação, favoritos, detalhes e galeria de produtos.
 - Preços em reais, preço anterior, descrições, detalhes, composição, cuidados, variações de tamanho/cor e estoque por variação.
 - Sacola persistente, quantidades limitadas ao estoque e a 20 unidades por variação.
-- Solicitações de pedido registradas no backend, com cálculo de preço no servidor e proteção de repetição por idempotência.
+- Duas opções de finalização: página demonstrativa com Pix/cartão ou resumo da sacola para iniciar uma conversa no WhatsApp. O backend de solicitações mantém cálculo de preço no servidor e proteção de repetição por idempotência para o fluxo legado.
 - Painel `/admin`: produtos, categorias e ordem/visibilidade, fotos por upload ou URL, conteúdo principal, editorial, textos de envio/troca, contatos, cores e acompanhamento de solicitações.
 - Animações 2D, entrada gradual, hover de fotos e perspectiva CSS 3D que responde ao mouse. Respeita a preferência de movimento reduzido; não depende de WebGL.
 - Tipografia e fotos incluídas localmente para evitar dependência de serviços externos na renderização padrão.
 
 ## Editar
 
-Entre no painel, altere os campos e use **Salvar alterações**. As alterações aparecem nas próximas visitas ou ao atualizar a vitrine. Produtos e categorias podem ficar ocultos. Produtos publicados precisam de preço positivo, imagem e variação. Rascunhos aceitam preço zero.
+Entre no painel, altere os campos e use **Salvar alterações**. As alterações aparecem nas próximas visitas ou ao atualizar a vitrine. Produtos e categorias podem ficar ocultos. Produtos publicados precisam de preço positivo, imagem e variação. Rascunhos aceitam preço zero. A **Paleta da loja** oferece os campos **Principal** e **Destaque**; textos, botões e áreas que compartilham cada cor mudam juntos na vitrine, finalização e páginas de informações.
 
 O painel impede excluir categorias vinculadas a produtos. O salvamento detecta revisões concorrentes; se outra sessão salvar primeiro, suas alterações permanecem na tela e podem ser exportadas antes de recarregar. Um upload é persistido antes de salvar o conteúdo; mídias sem uso não são removidas automaticamente.
 
-## Pedidos nesta primeira versão
+## Finalização demonstrativa
 
-O checkout é uma **solicitação de atendimento**, não uma cobrança. Não há gateway, Pix automático, cálculo automático de frete, e-mail/SMS de confirmação, rastreio ou reserva/desconto automático de estoque. A equipe confirma disponibilidade, frete e forma de pagamento e ajusta o estoque pelo painel. Os status são pendente, em atendimento, concluído e cancelado.
+**Finalizar no site** abre `/checkout`, uma demonstração de entrega, revisão da compra e pagamento por Pix ou cartão. Os dados são fictícios; a confirmação apenas simula a experiência, sem cobrança, criação de pedido no backend ou alteração de estoque. O frete exibido na demonstração também é ilustrativo. Não há gateway, Pix válido, e-mail/SMS de confirmação ou rastreio.
 
-Configure WhatsApp com país e DDD em Aparência e conteúdo. Quando houver número, a confirmação oferece um link para o cliente iniciar a conversa; o site não envia mensagens automaticamente. O painel recebe solicitações mesmo sem WhatsApp configurado. Contatos começam vazios para evitar informações inventadas.
+**Finalizar pelo WhatsApp** abre uma conversa com o resumo dos produtos, variações, quantidades e valores, sem exigir o formulário do site. O cliente decide enviar a mensagem; o site não a envia automaticamente nem cria um pedido nesse caminho. Configure o número com país e DDD em Aparência e conteúdo. Os contatos iniciais são exemplos explícitos: **(71) 00000-0000** e **contato@criativa.example**; substitua-os pelos contatos reais da loja.
 
-**Catálogo, preços, tecidos e estoques são demonstrativos; as fotografias são ilustrativas.** Substitua pelo catálogo real antes de vender. O aviso demonstrativo fica no rodapé; retire-o do componente `components/Storefront.tsx` quando a loja real estiver configurada.
+O backend e o painel preservam o fluxo legado de solicitações de atendimento e a recuperação de pedidos pendentes. Seus status são pendente, em atendimento, concluído e cancelado; disponibilidade, frete e pagamento são confirmados pela equipe. Essa API não é chamada pela finalização demonstrativa.
+
+**Catálogo, preços, tecidos e estoques são demonstrativos; as fotografias são ilustrativas.** Substitua pelo catálogo real antes de vender e revise o aviso de demonstração nas configurações do painel.
 
 ## Arquitetura
 
@@ -95,4 +97,3 @@ Os testes verificam autenticação/origem, upload, persistência e revisão, vis
 ## Créditos
 
 Fotografias ilustrativas: [Unsplash](https://unsplash.com/license); IDs de origem preservados nos nomes `public/images/photo-*.jpg` e em `lib/default-content.ts`. Fontes Bodoni Moda e DM Sans: [Google Fonts](https://fonts.google.com/), licenças OFL incluídas em `public/fonts/`. Ícones Lucide (licença ISC). Referências técnicas: [cookies do Next.js](https://nextjs.org/docs/app/api-reference/functions/cookies) e [Route Handlers](https://nextjs.org/docs/app/api-reference/file-conventions/route).
-# loja-de-roupas

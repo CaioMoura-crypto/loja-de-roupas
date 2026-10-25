@@ -1,0 +1,131 @@
+.fabric {
+  width: 100%;
+  min-width: 0;
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--fabric-ratio, 1.333333);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--shop-surface, var(--theme-f4f4f2, #f4f4f2));
+}
+
+.poster,
+.canvas,
+.tint {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.poster {
+  display: block;
+  object-fit: cover;
+}
+
+.canvas {
+  display: block;
+  opacity: 0;
+}
+
+.ready {
+  opacity: 1;
+}
+
+.tint {
+  pointer-events: none;
+  background: var(--fabric-tint, #ffffff);
+  mix-blend-mode: multiply;
+  opacity: 0.42;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  padding-block: 8px;
+}
+
+.pauseButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--shop-ink, var(--theme-1f2b4d, #1f2b4d));
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.4;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.pauseButton:focus-visible {
+  outline: 2px solid var(--shop-ink, var(--theme-1f2b4d, #1f2b4d));
+  outline-offset: 3px;
+}
+
+.pauseButton:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pauseButton:hover {
+    background: var(--shop-surface, var(--theme-f4f4f2, #f4f4f2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas {
+    opacity: 0;
+  }
+
+  .controls {
+    display: none;
+  }
+
+  .pauseButton:active {
+    transform: none;
+  }
+}
+
+.fill {
+  position: relative;
+  height: 100%;
+}
+
+.fill .media {
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.fill .controls {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 0;
+}
+
+.fill .pauseButton {
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  background: var(--theme-ffffff, #ffffff);
+  color: var(--theme-1f2b4d, #1f2b4d);
+}
+
+.fill .pauseButton span {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fill .pauseButton:hover {
+    background: var(--theme-f4f4f2, #f4f4f2);
+  }
+}

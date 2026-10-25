@@ -1,0 +1,4 @@
+.contact { min-width: 0; }
+.contact a { gap: 10px; }
+.contact svg { flex-shrink: 0; }
+.demo { max-width: 28ch; margin: 0; color: var(--theme-c4cbd9, #c4cbd9); font-size: 12px; line-height: 1.6; }

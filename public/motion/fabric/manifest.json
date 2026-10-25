@@ -1,0 +1,7 @@
+{
+  "frameCount": 60,
+  "width": 768,
+  "height": 576,
+  "framePattern": "/motion/fabric/frame-{index}.webp",
+  "poster": "/motion/fabric/poster.webp"
+}

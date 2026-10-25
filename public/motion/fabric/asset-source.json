@@ -1,0 +1,25 @@
+{
+  "sourceUrl": "https://v3b.fal.media/files/b/0aafd2d9/iMfZ3UdHwtSymbx5tDelR_video.mp4",
+  "provenance": "AI-generated video completed through fal.ai and supplied by the user for this task.",
+  "license": {
+    "status": "not_provided",
+    "note": "No separate license identifier was supplied with the generated output."
+  },
+  "sourceSha256": "e69c509c4eee54eb8271abe8c913492d09ca86bf15e3e6dbdc9b5244cd973f89",
+  "sourceBytes": 986920,
+  "frameCount": 60,
+  "framesBytes": 354986,
+  "posterBytes": 6316,
+  "width": 768,
+  "height": 576,
+  "fps": 12,
+  "durationSeconds": 5.0,
+  "webpQuality": 75,
+  "sourceFormat": {
+    "width": 1112,
+    "height": 834,
+    "fps": 24,
+    "durationSeconds": 5.04
+  },
+  "derivation": "60 WebP frames sampled from the existing video at 12 fps and resized proportionally to 768×576. No new generation."
+}

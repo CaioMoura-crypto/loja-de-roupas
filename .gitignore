@@ -1,0 +1,17 @@
+node_modules/
+.next/
+.env*
+!.env.example
+data/
+*.tsbuildinfo
+
+# Configurações e credenciais locais de ferramentas
+/.aws/
+/.codex/
+/.agents/
+
+# Saídas locais de verificação e logs
+/coverage/
+/test-results/
+/playwright-report/
+*.log

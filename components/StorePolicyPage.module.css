@@ -1,0 +1,35 @@
+.page { color: var(--theme-1f2b4d, #1f2b4d); background: var(--theme-ffffff, #ffffff); min-height: 100dvh; }
+.page ::selection { background: var(--theme-dce4ee, #dce4ee); color: var(--theme-1f2b4d, #1f2b4d); }
+.page a { text-underline-offset: 5px; }
+.page a:focus-visible { outline: 2px solid var(--theme-1f2b4d, #1f2b4d); outline-offset: 4px; }
+.header { min-height: 100px; padding: 22px 4%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { font-family: 'Bodoni Moda', Georgia, serif; font-size: 32px; text-decoration: none; letter-spacing: -.025em; }
+.back { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 14px; text-decoration: none; }
+.main { max-width: 1280px; padding: 38px 4% 70px; margin-inline: auto; }
+.main h1 { font-family: 'Bodoni Moda', Georgia, serif; font-size: clamp(38px, 4vw, 54px); font-weight: 400; line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; margin: 0; }
+.notice { background: var(--theme-f2f4f7, #f2f4f7); font-size: 14px; line-height: 1.7; padding: 17px 20px; margin: 30px 0 0; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 60px; align-items: start; margin-top: 42px; }
+.content { max-width: 72ch; min-width: 0; }
+.content p { font-size: 16px; line-height: 1.85; margin: 0 0 25px; white-space: pre-line; overflow-wrap: anywhere; }
+.navigation { display: flex; flex-direction: column; gap: 6px; padding: 20px; background: var(--theme-f2f4f7, #f2f4f7); }
+.navigation a { display: flex; align-items: center; min-height: 44px; font-size: 14px; text-decoration: none; }
+.navigation a[aria-current='page'] { font-weight: 600; text-decoration: underline; }
+.seller { margin-top: 50px; padding: 34px; background: var(--theme-f2f4f7, #f2f4f7); }
+.footer { background: var(--theme-f2f4f7, #f2f4f7); display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 28px 4%; }
+.footer > span { font-family: 'Bodoni Moda', Georgia, serif; font-size: 23px; }
+.footer > a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; }
+@media (hover: hover) and (pointer: fine) { .back:hover, .navigation a:hover { text-decoration: underline; } }
+@media (max-width: 800px) { .layout { grid-template-columns: minmax(0, 1fr); gap: 22px; } .navigation { flex-direction: row; flex-wrap: wrap; gap: 5px 24px; } }
+@media (max-width: 640px) {
+  .header { min-height: 82px; padding: 17px 20px; gap: 15px; }
+  .brand { font-size: 25px; }
+  .back { font-size: 12px; gap: 6px; }
+  .back svg { width: 15px; }
+  .main { padding: 30px 20px 48px; }
+  .main h1 { font-size: 38px; }
+  .notice { font-size: 13px; padding: 15px 17px; margin-top: 24px; }
+  .layout { margin-top: 30px; }
+  .content p { font-size: 15px; }
+  .seller { margin-top: 34px; padding: 24px 20px; }
+  .footer { padding: 25px 20px; }
+}
