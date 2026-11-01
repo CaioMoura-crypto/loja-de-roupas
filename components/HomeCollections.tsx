@@ -426,7 +426,7 @@ function PromotionsCarousel({ products, onOpenProduct }: {
     >
       <div className="home-section-heading">
         <h2 id={`${id}-title`}>Promoções</h2>
-        <p>Suas próximas favoritas, por menos.</p>
+        <p>Suas próximas favoritas, agora com preços especiais.</p>
         <Link className="solid-button home-section-button" href="/promocoes">Ver todas as promoções</Link>
       </div>
       <div className="home-promotions-carousel">

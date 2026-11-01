@@ -487,7 +487,9 @@ button, input, select, textarea { border-radius: 0; }
 
 /* A coleção vem direto após a abertura; informações reunidas no rodapé. */
 .store-footer { margin-top: 0; scroll-margin-top: 24px; }
-.footer-top { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 40px 64px; margin-bottom: 36px; }
+.footer-top { display: grid; grid-template-columns: minmax(0, 1.2fr) repeat(3, minmax(0, 1fr)); gap: 40px; margin-bottom: 36px; }
+.footer-top > :not(:first-child) { border-inline-start: 1px solid rgb(var(--theme-ffffff-rgb, 255 255 255) / 0.12); padding-inline-start: 32px; }
+.footer-brand-block { align-self: center; }
 .footer-brand { font-size: 42px; }
 .footer-business { margin-top: 24px; }
 .footer-business p, .footer-business address { max-width: 32ch; margin: 8px 0 0; color: var(--theme-d4d8e0, #d4d8e0); font-size: 13px; line-height: 1.7; font-style: normal; white-space: pre-line; overflow-wrap: anywhere; }
@@ -503,9 +505,33 @@ html::-webkit-scrollbar-track, .shop-dialog::-webkit-scrollbar-track { backgroun
 html::-webkit-scrollbar-thumb, .shop-dialog::-webkit-scrollbar-thumb { background: var(--theme-6f788c, #6f788c); border-radius: 8px; }
 html::-webkit-scrollbar-button, .shop-dialog::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
 @media (max-width: 600px) {
-  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  .store-footer { padding-top: 28px; }
+  .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .footer-top > :not(:first-child) { border-inline-start: 0; padding-inline-start: 0; }
+  .footer-brand-block { display: block; grid-column: 1 / -1; align-self: start; text-align: center; }
+  .footer-brand-block > p { display: none; }
+  .footer-information { display: none; }
+  .footer-top > :nth-child(3), .footer-top > :nth-child(4) { align-items: center; text-align: center; }
+  .footer-top > :nth-child(4) { border-inline-start: 1px solid rgb(var(--theme-ffffff-rgb, 255 255 255) / 0.12); padding-inline-start: 20px; }
+  .footer-column { gap: 9px; }
+  .footer-column a, .footer-column button { min-height: 34px; }
   .footer-brand { font-size: 36px; }
-  .footer-bottom { gap: 8px; }
+  .footer-bottom { justify-content: center; gap: 8px; text-align: center; }
+  .footer-bottom > a { display: none; }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .footer-brand-block { display: block; grid-column: 1 / -1; align-self: start; text-align: center; }
+  .footer-brand-block > p { display: none; }
+  .footer-information { display: none; }
+  .footer-top > :not(:first-child) { border-inline-start: 0; padding-inline-start: 0; }
+  .footer-top > :nth-child(3), .footer-top > :nth-child(4) { align-items: center; text-align: center; }
+  .footer-top > :nth-child(4) { border-inline-start: 1px solid rgb(var(--theme-ffffff-rgb, 255 255 255) / 0.12); padding-inline-start: 24px; }
+}
+@media (max-width: 900px) {
+  .footer-top > :nth-child(3) h2, .footer-top > :nth-child(4) h2 { font-size: 14px; }
+  .footer-top > :nth-child(3) a, .footer-top > :nth-child(4) a { font-size: 13px; }
+  .footer-top > :nth-child(3) p { font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-visual > img { animation: none; }
@@ -552,6 +578,9 @@ html::-webkit-scrollbar-button, .shop-dialog::-webkit-scrollbar-button { display
 .home-demo { margin: 0 4% 32px !important; max-width: none; padding: 7px 12px; }
 .home-collections { max-width: 1600px; margin: 0 auto; padding: 0 4% 72px; }
 .home-promotions { display: grid; grid-template-columns: minmax(180px, .8fr) minmax(0, 2fr); gap: 48px; padding-top: 32px; padding-bottom: 64px; }
+.home-promotions > .home-section-heading { align-self: center; }
+.home-promotions .home-section-heading h2 { font-size: clamp(36px, 3.7vw, 54px); }
+.home-promotions .home-section-heading p { max-width: 40ch; }
 .home-section-heading h2 { font: 400 clamp(32px, 3.3vw, 48px)/1.12 var(--shop-serif); letter-spacing: -.025em; }
 .storefront .home-section-button {
   max-width: 100%; min-height: 44px; margin-top: 18px; padding: 10px 16px;
